@@ -179,7 +179,10 @@ return [
 
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
 
-    ],
+
+        Laravel\Socialite\SocialiteServiceProvider::class,
+],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -229,6 +232,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
+
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 

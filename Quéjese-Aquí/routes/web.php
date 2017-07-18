@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return view('adminlte/home');
+});
+
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {
     //        // Uses Auth Middleware
@@ -27,5 +31,5 @@ Route::group(['middleware' => 'auth'], function () {
 Route::resource('Entidad', 'EntidadController');
 Route::resource('Quejas', 'QuejasController');
 
-Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
+Route::get('auth/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');

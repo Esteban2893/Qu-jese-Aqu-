@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateComplaintsTable extends Migration
 {
@@ -16,21 +16,25 @@ class CreateComplaintsTable extends Migration
         Schema::create('complaints', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('entity_id');
+            $table->integer('user_id');
             $table->integer('department_id');
-            $table->string('problem');
-            $table->string('solution')->nullable();
+            $table->text('problem');
+            $table->text('solution')->nullable();
             $table->boolean('available')->default('false');
-             $table->timestamps();
+            $table->timestamps();
 
             $table->foreign('department_id')
                 ->references('id')
                 ->on('departments');
             $table->foreign('entity_id')
                 ->references('id')
-                ->on('entities');         
-           
+                ->on('entities');
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users');
+
         });
-    
+
     }
 
     /**
@@ -40,6 +44,6 @@ class CreateComplaintsTable extends Migration
      */
     public function down()
     {
-         Schema::dropIfExists('complaints');
+        Schema::dropIfExists('complaints');
     }
 }

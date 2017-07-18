@@ -9,7 +9,7 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,12 +17,15 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {
-//        // Uses Auth Middleware
-//    });
+    //        // Uses Auth Middleware
+    //    });
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
 });
+
+Route::resource('Entidad', 'EntidadController');
+Route::resource('Quejas', 'QuejasController');
 
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');

@@ -17,7 +17,7 @@ class CreateComplaintsTable extends Migration
             $table->increments('id');
             $table->integer('entity_id');
             $table->integer('user_id');
-            $table->integer('department_id');
+            $table->string('department')->nullable();
             $table->text('problem');
             $table->text('solution')->nullable();
             $table->boolean('available')->default('false');

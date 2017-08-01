@@ -16,9 +16,4 @@ class Entidades extends Model
         return $this->hasMany('App\Models\Quejas');
     }
 
-    public function departamentos()
-    {
-
-        return $this->hasMany('App\Models\Departamentos');
-    }
 }

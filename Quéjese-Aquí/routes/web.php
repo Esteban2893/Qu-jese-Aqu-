@@ -19,17 +19,17 @@ Route::get('/home', function () {
     return view('adminlte/home');
 });
 
-Route::group(['middleware' => 'auth'], function () {
+/*Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {
     //        // Uses Auth Middleware
     //    });
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
-});
+});*/
 
-Route::resource('Entidad', 'EntidadController');
-Route::resource('Quejas', 'QuejasController');
+Route::resource('entidad', 'EntidadController');
+Route::resource('queja', 'QuejasController');
 
 Route::get('auth/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');

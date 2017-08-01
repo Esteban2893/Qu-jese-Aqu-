@@ -2,33 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use App\Entidad;
+use App\Http\Requests\EntidadRequest;
+
 class EntidadController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-
-    }
+ 
 
     public function index()
     {
-
+        return View("welcome");
     }
 
     public function create()
     {
-        return view('entidad.create');
+        return View('entidad.create');
     }
 
-    public function store(Request $request)
+    public function store(EntidadRequest $request)
     {
         $entidad = Entidad::create($request->all());
-
         $entidad->save();
-
-        return redirect()->route('entidad.index')
-            ->with('info', Entidadcreada);
+        return redirect()->route('welcome');
+            
     }
 
     public function show($id)

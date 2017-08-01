@@ -1,1 +1,1 @@
-@extends('adminlte::home')
+@extends('adminlte::layouts.app')

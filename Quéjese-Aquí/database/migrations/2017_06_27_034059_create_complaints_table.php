@@ -23,9 +23,6 @@ class CreateComplaintsTable extends Migration
             $table->boolean('available')->default('false');
             $table->timestamps();
 
-            $table->foreign('department_id')
-                ->references('id')
-                ->on('departments');
             $table->foreign('entity_id')
                 ->references('id')
                 ->on('entities');

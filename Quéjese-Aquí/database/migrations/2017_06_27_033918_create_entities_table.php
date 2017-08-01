@@ -15,12 +15,11 @@ class CreateEntitiesTable extends Migration
     {
         Schema::create('entities', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('department');
             $table->string('name');
-            $table->string('address');
-            $table->integer('phone_number');
-            $table->string('website');
-            $table->string('email');
+            $table->string('address')->nullable();
+            $table->integer('phone_number')->nullable();
+            $table->string('website')->nullable();
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 <!--
 Landing page based on Pratt: http://blacktie.co/demo/pratt/
 -->
+@extends('adminlte::layouts.auth')
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -23,6 +24,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     <!-- Fixed navbar -->
     <div id="navigation" class="navbar navbar-default navbar-fixed-top">
         <div class="container">
+        <br>
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>

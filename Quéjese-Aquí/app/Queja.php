@@ -15,12 +15,6 @@ class Quejas extends Model
         return $this->belongsTo('App\Models\Entidades');
     }
 
-    public function departamentos()
-    {
-
-        return $this->belongsTo('App\Models\Departamentos');
-    }
-
     public function user()
     {
 

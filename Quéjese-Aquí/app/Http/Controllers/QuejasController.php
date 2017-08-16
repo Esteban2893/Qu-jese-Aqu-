@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Queja;
+use App\Entidad;
+use App\User;
 use Auth;
 
 class QuejasController extends Controller
@@ -22,7 +25,10 @@ class QuejasController extends Controller
     {
         $user = User::find(Auth::User()->id);
         $quejas = $user->quejas()->paginate(5);
-        return view('quejas/index', compact('quejas'));
+         foreach ($quejas as $queja) {
+            $queja->entidad = Entidad::find($queja->entity_id);
+        }
+        return view('quejas/index', ['quejas' => $quejas]);
          
     }
 
@@ -33,7 +39,8 @@ class QuejasController extends Controller
      */
     public function create()
     {
-        //
+        $entidades = Entidad::all();
+        return View('quejas/create' , ['entidades' => $entidades]);
     }
 
     /**
@@ -44,7 +51,13 @@ class QuejasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $queja = Queja::create($request->all());
+        $queja->user_id = Auth::User()->id;
+        $user = User::find($queja->user_id);
+        $queja->available = false;
+        $queja->save();
+        Session::flash('success', 'Queja creada');
+        return redirect('/quejas');
     }
 
     /**

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Entidad;
 use Session;
 
+
 class EntidadController extends Controller
 {
     /**

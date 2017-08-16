@@ -39,6 +39,7 @@ class QuejasController extends Controller
      */
     public function create()
     {
+
         $entidades = Entidad::all();
         return View('quejas/create' , ['entidades' => $entidades]);
     }
@@ -53,10 +54,9 @@ class QuejasController extends Controller
     {
         $queja = Queja::create($request->all());
         $queja->user_id = Auth::User()->id;
-        $user = User::find($queja->user_id);
-        $queja->available = false;
+        dd($queja);
         $queja->save();
-        Session::flash('success', 'Queja creada');
+        Session::flash('success', 'Queja creada con éxito');
         return redirect('/quejas');
     }
 

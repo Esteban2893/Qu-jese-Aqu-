@@ -26,7 +26,7 @@
                   <th>Departamento</th>
                   <th>Problema</th>
                   <th>Solución</th>
-                  <th>Disponible</th>
+                  <th>Estado</th>
                 </tr>
                  @foreach($quejas as $queja)
                 <tr>
@@ -35,7 +35,11 @@
                         <td>{{$queja->department}}</td>
                         <td>{{$queja->problem}}</td>
                         <td>{{$queja->solution}}</td>
-                         <td><span class="label label-primary">Approved</span></td>
+                         @if($queja->available == false)
+                        <td><span class="label label-danger">Desactivada</span></td>
+                        @else
+                         <td><span class="label label-success">Activada</span></td>
+                         @endif
                         <td>
                             <a class="btn btn-primary"
                                href="{{ URL::to('quejas/'.$queja->id.'/edit') }}" role="button">Editar

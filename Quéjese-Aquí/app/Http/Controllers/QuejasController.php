@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class QuejasController extends Controller
 {
@@ -11,9 +12,18 @@ class QuejasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+
+    {
+        $this->middleware('auth');
+
+    }
     public function index()
     {
-        //
+        $user = User::find(Auth::User()->id);
+        $quejas = $user->quejas()->paginate(5);
+        return view('quejas/index', compact('quejas'));
+         
     }
 
     /**

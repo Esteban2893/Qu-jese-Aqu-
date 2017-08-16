@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Quejas extends Model
+class Queja extends Model
 {
     protected $table    = 'complaints';
     protected $fillable = ['id', 'entity_id', 'department_id', 'problem', 'solution', 'available'];

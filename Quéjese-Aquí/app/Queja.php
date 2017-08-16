@@ -12,13 +12,13 @@ class Quejas extends Model
     public function entidades()
     {
 
-        return $this->belongsTo('App\Models\Entidades');
+        return $this->belongsTo('App\Entidad');
     }
 
     public function user()
     {
 
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\User');
     }
 
 }

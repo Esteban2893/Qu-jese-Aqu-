@@ -36,11 +36,18 @@
             <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>Quejas</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a  href="{{ url('queja/create') }}">Crear Queja</a></li>
-                    <li><a  href="{{ url('queja/index') }}">Mis Quejas</a></li>
+                    <li><a  href="{{ url('quejas/create') }}">Crear Queja</a></li>
+                    <li><a  href="{{ url('quejas/index') }}">Mis Quejas</a></li>
                 </ul>
             </li>
-            <li class="active"><a href="{{ url('entidad/create') }}"><i class='fa fa-link'></i> <span>Crear entidad</span></a></li>
+            <li class="treeview">
+                <a href="#"><i class='fa fa-link'></i> <span>Entidades</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a  href="{{ url('entidades/create') }}">Crear Entidad</a></li>
+                    <li><a  href="{{ url('entidades') }}">Ver Entidades</a></li>
+                </ul>
+            </li>
+            <li class="active"><a href="{{ url('entidades/create') }}"><i class='fa fa-link'></i> <span>Crear entidad</span></a></li>
 
             <li><a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li>
 

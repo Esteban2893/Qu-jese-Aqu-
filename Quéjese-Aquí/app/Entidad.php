@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Entidades extends Model
+class Entidad extends Model
 {
 
     protected $table    = 'entities';
@@ -13,7 +13,7 @@ class Entidades extends Model
     public function quejas()
     {
 
-        return $this->hasMany('App\Models\Quejas');
+        return $this->hasMany('App\Queja');
     }
 
 }

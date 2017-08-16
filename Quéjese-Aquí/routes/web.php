@@ -28,8 +28,8 @@ Route::get('/home', function () {
     #adminlte_routes
 });*/
 
-Route::resource('entidad', 'EntidadController');
-Route::resource('queja', 'QuejasController');
+Route::resource('entidades', 'EntidadController');
+Route::resource('quejas', 'QuejasController');
 
 Route::get('auth/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');

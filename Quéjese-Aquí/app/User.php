@@ -30,7 +30,7 @@ class User extends Authenticatable
     public function quejas()
     {
 
-        return $this->hasMany('App\Models\Quejas');
+        return $this->hasMany('App\Queja');
     }
 
 }

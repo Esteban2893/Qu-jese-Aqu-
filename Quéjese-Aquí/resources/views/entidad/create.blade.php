@@ -14,7 +14,7 @@
 				 	<div class="panel-heading">
         				<div class="panel-title">Registrar Entidad</div>
         			</div>
-         @include('entidad.partials.form',['submitButtonText'=>'Crear'])
+          @include('entidad.partials.form',['submitButtonText'=>'Crear'])
        
         </center>
     </div>

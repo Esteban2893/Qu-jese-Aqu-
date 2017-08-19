@@ -27,6 +27,6 @@
     <div class="form-group">
     <center>
     <button type="submit" class="btn btn-primary">{{ $submitButtonText }}</button>
-    <a class="btn btn-default" href="{{ URL::to('entidades') }}">Cancelar</a>
+    <a class="btn btn-default" href="{{ URL::to('quejas') }}">Cancelar</a>
     </center>
 </div>

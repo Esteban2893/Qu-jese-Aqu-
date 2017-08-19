@@ -79,7 +79,9 @@ class QuejasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $entidades = Entidad::all();
+         $queja = Queja::find($id);
+        return view('quejas.edit', ['entidades' => $entidades, 'queja' => $queja]);
     }
 
     /**
@@ -91,7 +93,10 @@ class QuejasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $queja = Queja::find($id);
+        $queja->fill($request->all());
+        $entidad->save();
+        return redirect('quejas')->with('info', 'Queja editada exitosamente');
     }
 
     /**

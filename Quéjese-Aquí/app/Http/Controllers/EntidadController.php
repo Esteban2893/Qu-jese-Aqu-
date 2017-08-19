@@ -70,7 +70,8 @@ class EntidadController extends Controller
     public function edit($id)
     {
          $entidad = Entidad::find($id);
-        return view('entidad.edit', compact('entidad'));
+        return view('entidad.edit',['entidad' => $entidad]);
+        
     }
 
     /**

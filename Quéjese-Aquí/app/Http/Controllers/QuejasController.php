@@ -107,6 +107,8 @@ class QuejasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $queja = Queja::find($id);
+        $queja->delete();
+        return back()->with('info', 'Queja eliminada exitosamente');
     }
 }

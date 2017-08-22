@@ -20,6 +20,7 @@ class CreateComplaintsTable extends Migration
             $table->string('department')->nullable();
             $table->text('problem');
             $table->text('solution')->nullable();
+            $table->integer('likes')->nullable();
             $table->boolean('available')->default('false');
             $table->timestamps();
 

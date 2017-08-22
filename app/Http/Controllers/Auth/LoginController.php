@@ -22,7 +22,7 @@ class LoginController extends Controller
     |
      */
 
-    /*use AuthenticatesUsers {
+    use AuthenticatesUsers {
         attemptLogin as attemptLoginAtAuthenticatesUsers;
     }
 
@@ -41,14 +41,14 @@ class LoginController extends Controller
      *
      * @var string
      */
-   /* protected $redirectTo = '/home';
+   // protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    /*function __construct()
+    function __construct()
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
@@ -69,7 +69,7 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return bool
      */
-  /*  function attemptLogin(Request $request)
+   /*function attemptLogin(Request $request)
     {
         if ($this->username() === 'email') {
             return $this->attemptLoginAtAuthenticatesUsers($request);
@@ -87,7 +87,7 @@ class LoginController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return bool
      */
-  /*  function attempLoginUsingUsernameAsAnEmail(Request $request)
+  /* function attempLoginUsingUsernameAsAnEmail(Request $request)
     {
         return $this->guard()->attempt(
             ['email' => $request->input('username'), 'password' => $request->input('password')],

@@ -7,6 +7,7 @@ use App\Queja;
 use App\Entidad;
 use App\User;
 use Auth;
+use Session;
 
 class QuejasController extends Controller
 {
@@ -52,9 +53,13 @@ class QuejasController extends Controller
      */
     public function store(Request $request)
     {
-        $queja = Queja::create($request->all());
+         $queja = new Queja;
+ 
+        $queja->entity_id  = $request->entity_id;
+        $queja->department = $request->department;
+        $queja->problem  = $request->problem;
+        $queja->solution  = $request->solution;
         $queja->user_id = Auth::User()->id;
-        dd($queja);
         $queja->save();
         Session::flash('success', 'Queja creada con éxito');
         return redirect('/quejas');

@@ -31,5 +31,5 @@ Route::get('/home', function () {
 Route::resource('entidades', 'EntidadController');
 Route::resource('quejas', 'QuejasController');
 
-Route::get('auth/facebook', 'Auth\LoginController@redirectToProvider');
+Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');

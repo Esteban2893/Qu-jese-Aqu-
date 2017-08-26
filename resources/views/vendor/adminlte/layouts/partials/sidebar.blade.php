@@ -44,7 +44,9 @@
                 <a href="#"><i class='fa fa-link'></i> <span>Entidades</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a  href="{{ url('entidades/create') }}">Crear Entidad</a></li>
+                    @if(Auth::user()->user_type == 1)
                     <li><a  href="{{ url('entidades') }}">Ver Entidades</a></li>
+                    @endif
                 </ul>
             </li>
              @if(Auth::user()->user_type == 1 )

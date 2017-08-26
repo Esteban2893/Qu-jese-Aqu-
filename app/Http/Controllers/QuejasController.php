@@ -136,4 +136,13 @@ class QuejasController extends Controller
        $queja->save();
        return redirect('listaquejas');
     }
+
+     public function megustaQuejas($id)
+    {
+       $count = 1;
+       $queja = Queja::find($id);
+       $queja->likes = ++$count; 
+       $queja->save();
+       return back()->withInput();
+    }
 }

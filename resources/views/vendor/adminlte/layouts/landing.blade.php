@@ -81,7 +81,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
           <ul class="timeline">
             <li>
             @foreach($quejas as $queja)
-             <div class="user-panel">
+                <div class="panel-group">
+                     <div class="panel panel-info">
                 <div class="pull-left image">
                     <img src="{{  $queja->user->avatar  }}" class="img-circle" alt="User Image" />
                 </div>
@@ -94,16 +95,26 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                 <div class="timeline-body">
                   {{$queja->problem}}
                 </div>
+               @if(Auth::user()) 
                 <div class="timeline-footer">
-                  <a class="btn btn-primary btn-flat btn-xs">Me gusta</a>
+                   <a class="btn btn-primary btn-flat btn-xs fa fa-thumbs-up"
+                               href="{{ URL::to('megustaqueja/'.$queja->id) }}" role="button">Me gusta
+                                </span></a>
+
                 </div>
+                @endif
               </div>
+                
             </li>
-                <br>
                 <hr>
             </div> <!--/ .container -->
         </div><!--/ #introwrap -->
         @endforeach
+          @if($quejas != null)
+            <div class="panel-footer text-center">
+                {!! $quejas->render() !!}
+            </div>
+        @endif
         <!-- FEATURES WRAP -->
         <div id="features">
             <div class="container">

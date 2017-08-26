@@ -34,3 +34,5 @@ Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallba
 
 Route::get('activarqueja/{id}', 'QuejasController@activarQuejas');
 Route::get('listaquejas', 'QuejasController@listaQuejas');
+
+Route::get('megustaqueja/{id}', 'QuejasController@megustaQuejas');

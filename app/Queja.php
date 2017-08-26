@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Queja extends Model
 {
     protected $table    = 'complaints';
-    protected $fillable = ['id', 'entity_id', 'user_id', 'department', 'problem', 'solution', 'available'];
+    protected $fillable = ['id', 'entity_id', 'user_id', 'department', 'problem', 'solution', 'likes','available'];
 
     public function entidades()
     {

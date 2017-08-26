@@ -49,7 +49,7 @@
             </li>
              @if(Auth::user()->user_type == 1 )
              <li class="active">
-             <a href="{{ url('quejas/activar') }}"><i class='fa fa-link'></i>
+             <a href="{{ url('activarquejas') }}"><i class='fa fa-link'></i>
               <span>Activar Quejas</span></a></li>
             @endif
              <li class="active">

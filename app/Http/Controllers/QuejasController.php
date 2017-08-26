@@ -117,11 +117,23 @@ class QuejasController extends Controller
         return redirect('quejas')->with('info', 'Queja eliminada exitosamente');
     }
 
-    public function activarquejas($id)
+
+    public function listaQuejas()
+    {
+          $quejas = Queja::where('available', false)
+               ->paginate(5);
+               foreach ($quejas as $queja) {
+                    $queja->entidad = Entidad::find($queja->entity_id); 
+                       
+               }
+        return view('quejas.activate',['quejas' => $quejas]);
+    }
+
+    public function activarQuejas($id)
     {
        $queja = Queja::find($id);
        $queja->available = true; 
        $queja->save();
-       return redirect('quejas');
+       return redirect('listaquejas');
     }
 }

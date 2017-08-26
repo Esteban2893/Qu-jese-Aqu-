@@ -31,3 +31,6 @@ Route::resource('quejas', 'QuejasController');
 
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
+
+Route::get('activarqueja/{id}', 'QuejasController@activarQuejas');
+Route::get('listaquejas', 'QuejasController@listaQuejas');

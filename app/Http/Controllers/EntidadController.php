@@ -88,7 +88,7 @@ class EntidadController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $entidad = Entidad::find($id);
+        $entidad = Entidad::find($id);
         $entidad->fill($request->all());
         $entidad->save();
         return redirect('entidades')->with('info', 'Fue editado exitosamente');

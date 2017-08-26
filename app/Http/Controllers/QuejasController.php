@@ -100,7 +100,7 @@ class QuejasController extends Controller
     {
         $queja = Queja::find($id);
         $queja->fill($request->all());
-        $entidad->save();
+        $queja->save();
         return redirect('quejas')->with('info', 'Queja editada exitosamente');
     }
 
@@ -114,6 +114,14 @@ class QuejasController extends Controller
     {
         $queja = Queja::find($id);
         $queja->delete();
-        return back()->with('info', 'Queja eliminada exitosamente');
+        return redirect('quejas')->with('info', 'Queja eliminada exitosamente');
+    }
+
+    public function activarquejas($id)
+    {
+       $queja = Queja::find($id);
+       $queja->available = true; 
+       $queja->save();
+       return redirect('quejas');
     }
 }

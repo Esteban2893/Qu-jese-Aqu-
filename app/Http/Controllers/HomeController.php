@@ -9,7 +9,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
-
+use App\Queja;
+use App\Entidad;
 /**
  * Class HomeController
  * @package App\Http\Controllers
@@ -22,9 +23,11 @@ class HomeController extends Controller
      * @return void
      */
             
-                public function __construct()
+    public function __construct()
     {
-        $this->middleware('auth');
+        
+       //$this->middleware('auth', ['except' => 'vistaPrincipal']);
+        $this->middleware('auth', ['only' => ['index']]);
     }
 
     /**
@@ -36,4 +39,18 @@ class HomeController extends Controller
     {
         return view('adminlte::home');
     }
-}
+
+    public function vistaPrincipal()
+    {
+
+        $quejas = Queja::where('available', true)
+               ->orderBy('created_at', 'desc')
+               ->paginate(2);
+               foreach ($quejas as $queja) {
+                    $queja->Entidad = Entidad::find($queja->entity_id); 
+                     $queja->User = $queja->user()->get();   
+               }
+        
+        return view('welcome',compact('quejas'));
+    }
+}   

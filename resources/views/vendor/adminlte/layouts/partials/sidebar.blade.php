@@ -52,7 +52,9 @@
              <a href="{{ url('quejas/activar') }}"><i class='fa fa-link'></i>
               <span>Activar Quejas</span></a></li>
             @endif
-            
+             <li class="active">
+             <a href="{{ url('/') }}"><i class='fa fa-link'></i>
+              <span>Ver Quejas</span></a></li>
 
 
         </ul><!-- /.sidebar-menu -->

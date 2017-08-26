@@ -36,8 +36,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#home" class="smoothScroll">Home</a></li>
-                    <li><a href="#desc" class="smoothScroll">Descripción</a></li>
-                    <li><a href="#contact" class="smoothScroll">Contacto</a></li>
+                    <li><a href="#desc" class="smoothScroll">Ver quejas</a></li>
+                    <li><a href="#contact" class="smoothScroll">Estadisticas</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::guest())
@@ -72,30 +72,38 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
         <div id="intro">
             <div class="container">
                 <div class="row centered">
-                    <h1>{{ trans('adminlte_lang::message.designed') }}</h1>
+                    <h1>Lista de quejas</h1>
                     <br>
                     <br>
-                    <div class="col-lg-4">
-                        <img src="{{ asset('/img/intro01.png') }}" alt="">
-                        <h3>{{ trans('adminlte_lang::message.community') }}</h3>
-                        <p>{{ trans('adminlte_lang::message.see') }} <a href="https://github.com/acacha/adminlte-laravel">{{ trans('adminlte_lang::message.githubproject') }}</a>, {{ trans('adminlte_lang::message.post') }} <a href="https://github.com/acacha/adminlte-laravel/issues">{{ trans('adminlte_lang::message.issues') }}</a> {{ trans('adminlte_lang::message.and') }} <a href="https://github.com/acacha/adminlte-laravel/pulls">{{ trans('adminlte_lang::message.pullrequests') }}</a></p>
-                    </div>
-                    <div class="col-lg-4">
-                        <img src="{{ asset('/img/intro02.png') }}" alt="">
-                        <h3>{{ trans('adminlte_lang::message.schedule') }}</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                    <div class="col-lg-4">
-                        <img src="{{ asset('/img/intro03.png') }}" alt="">
-                        <h3>{{ trans('adminlte_lang::message.monitoring') }}</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
+        <div class="row">
+         <div class="col-md-12">
+          <!-- The time line -->
+          <ul class="timeline">
+            <li>
+            @foreach($quejas as $queja)
+             <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="{{  $queja->user->avatar  }}" class="img-circle" alt="User Image" />
                 </div>
+
+              <div class="timeline-item">
+                <span class="time"><i class="fa fa-clock-o"></i> {{$queja->created_at}}</span>
+
+                <h3 class="timeline-header"><a href="#">{{$queja->user->name}}</a> Creó una queja</h3>
+
+                <div class="timeline-body">
+                  {{$queja->problem}}
+                </div>
+                <div class="timeline-footer">
+                  <a class="btn btn-primary btn-flat btn-xs">Me gusta</a>
+                </div>
+              </div>
+            </li>
                 <br>
                 <hr>
             </div> <!--/ .container -->
         </div><!--/ #introwrap -->
-
+        @endforeach
         <!-- FEATURES WRAP -->
         <div id="features">
             <div class="container">

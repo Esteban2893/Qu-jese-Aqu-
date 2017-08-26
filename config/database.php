@@ -63,7 +63,7 @@ return [
        'pgsql' => [
             'driver' => 'pgsql',
             'host' => 'ec2-54-163-254-143.compute-1.amazonaws.com',
-            'port' => env('DB_PORT', '5432'),
+            'port' => '5432',
             'database' => 'd3mu3fgv1spjg0',
             'username' => 'njckomdyewivwf',
             'password' => 'c4af796b0837b4a046765e70c1ce7453596a395b412e7fd77d541119102fb23a',

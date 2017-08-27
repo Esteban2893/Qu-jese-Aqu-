@@ -37,7 +37,7 @@ var options={
 
 $("#div_grafica_pie").html( $("#cargador_empresa").html() );
 
-var url = "prueba";
+var url = "grafico";
 
 
 $.get(url,function(resul){

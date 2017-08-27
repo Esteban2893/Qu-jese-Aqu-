@@ -139,9 +139,9 @@ class QuejasController extends Controller
 
      public function megustaQuejas($id)
     {
-       $count = 1;
+       
        $queja = Queja::find($id);
-       $queja->likes = ++$count; 
+       $queja->likes = $queja->likes +=1;
        $queja->save();
        return back()->withInput();
     }

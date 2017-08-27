@@ -37,4 +37,4 @@ Route::get('listaquejas', 'QuejasController@listaQuejas');
 
 Route::get('megustaqueja/{id}', 'QuejasController@megustaQuejas');
 
-Route::get('prueba','GraficasController@total_quejas');
+Route::get('grafico','GraficasController@total_quejas');

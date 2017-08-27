@@ -79,6 +79,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
          <div class="col-md-12">
           <!-- The time line -->
           <ul class="timeline">
+          
             <li>
              @if($quejas == null)
                 <td colspan="8">
@@ -105,9 +106,9 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                @if(Auth::user()) 
                 <div class="timeline-footer">
                    <a class="btn btn-primary btn-flat btn-xs fa fa-thumbs-up"
-                               href="{{ URL::to('megustaqueja/'.$queja->id) }}" role="button">Me gusta
+                               href="{{ URL::to('megustaqueja/'.$queja->id) }}" role="button">Me gusta {{$queja->likes}}
                                 </span></a>
-
+                 
                 </div>
                 @endif
               </div>

@@ -60,7 +60,7 @@ return [
             'engine' => null,
         ],
 
-       'pgsql' => [
+       /*'pgsql' => [
             'driver' => 'pgsql',
             'host' => 'ec2-54-163-254-143.compute-1.amazonaws.com',
             'port' => '5432',
@@ -71,8 +71,8 @@ return [
             'prefix' => '',
             'schema' => 'public',
             'sslmode' => 'prefer',
-        ],
-        /*'pgsql' => [
+        ],*/
+        'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
@@ -83,7 +83,7 @@ return [
             'prefix' => '',
             'schema' => 'public',
             'sslmode' => 'prefer',
-        ]*/
+        ]
 
     ],
 

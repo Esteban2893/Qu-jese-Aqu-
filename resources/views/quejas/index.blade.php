@@ -19,6 +19,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
+             @if(count($quejas)>0)
               <table class="table table-hover">
                 <tr>
                   
@@ -54,9 +55,18 @@
                 </tr>
                 @endforeach
               </table>
+               @else
+                <h4>No tiene quejas creadas</h4>
+            @endif
+            </div>
+            @if($quejas != null)
+            <div class="panel-footer text-center">
+                {!! $quejas->render() !!}
             </div>
             <!-- /.box-body -->
           </div>
+
+        @endif
           <!-- /.box -->
         </div>
       </div>

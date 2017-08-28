@@ -31,7 +31,7 @@ class QuejasController extends Controller
         $user = User::find(Auth::User()->id);
         $quejas = $user->quejas()
             ->orderBy('created_at', 'desc')
-             ->paginate(5);
+             ->paginate(6);
          foreach ($quejas as $queja) {
             $queja->entidad = Entidad::find($queja->entity_id);
         }

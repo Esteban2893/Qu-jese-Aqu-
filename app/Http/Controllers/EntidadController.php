@@ -21,7 +21,7 @@ class EntidadController extends Controller
     }
     public function index()
     {
-        $entidades = Entidad::paginate(5);
+        $entidades = Entidad::paginate(6);
         return view('entidad/index', ['entidades' => $entidades]); 
     }
 

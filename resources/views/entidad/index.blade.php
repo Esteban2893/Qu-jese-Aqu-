@@ -19,6 +19,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
+             @if(count($entidades)>0)
               <table class="table table-hover">
                 <tr>
                   
@@ -41,18 +42,21 @@
                                href="{{ URL::to('entidades/'.$entidad->id.'/edit') }}" role="button">Editar
                                 <span class="fa fa-pencil"></span></a>
                         </td>
-                        <td> {!!Form::open(array('url' => "/entidades/$entidad->id", 'method' => 'DELETE'))!!}
-                            <button class="btn btn-default btn-danger"><span class="fa fa-trash"></span>Eliminar
-                            </button>
-                            {!!Form::close()!!}
-                        </td>
                
                 </tr>
                 @endforeach
               </table>
+              @else
+                <h4>No hay entidades registradas</h4>
+            @endif
             </div>
             <!-- /.box-body -->
           </div>
+          @if($entidades != null)
+            <div class="panel-footer text-center">
+                {!! $entidades->render() !!}
+            </div>
+            @endif
           <!-- /.box -->
         </div>
       </div>

@@ -50,7 +50,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             </div><!--/.nav-collapse -->
         </div>
     </div>
-
+<br>
 
     <section id="home" name="home">
         <div id="headerwrap">
@@ -58,20 +58,31 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                 <div class="row centered">
                     <div class="col-lg-12">
                         <h1>BIENVENIDO</h1>
-                        <h3>En esta aplicación web usted podrá crear quejas sobre cualquier empresa o institución.
+        <br>
+        <br>
 
+                        <h3>En esta aplicación web usted podrá crear quejas sobre cualquier empresa o institución.
+                        Inicie sesión con facebook para que pueda crearlas. 
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
                     </div>
 
                 </div>
             </div> <!--/ .container -->
         </div><!--/ #headerwrap -->
     </section>
-
+         
     <section id="desc" name="desc">
         <!-- INTRO WRAP -->
         <div id="intro">
             <div class="container">
                 <div class="row centered">
+               
                     <h1>Lista de quejas</h1>
                     <br>
                     <br>
@@ -79,15 +90,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
          <div class="col-md-12">
           <!-- The time line -->
           <ul class="timeline">
-          
+           @if(count($quejas)>0)
             <li>
-             @if($quejas == null)
-                <td colspan="8">
-                    <center>
-                    No hay quejas creadas en el sistema
-                    </center>
-                </td>
-            @else
             @foreach($quejas as $queja)
                 <div class="panel-group">
                      <div class="panel panel-info">
@@ -111,14 +115,17 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                  
                 </div>
                 @endif
-              </div>
                 
+              </div>
+               @endforeach
             </li>
-                <hr>
+            @else
+                <h4>No hay quejas creadas en el sistema. </h4>
+            @endif
             </div> <!--/ .container -->
         </div><!--/ #introwrap -->
-        @endforeach
-        @endif
+        
+       
           @if($quejas != null)
             <div class="panel-footer text-center">
                 {!! $quejas->render() !!}
@@ -127,6 +134,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
         <!-- FEATURES WRAP -->
 
    <br/>
+   
      <section id="graf" name="graf">
     <div class="box box-primary">
         <div class="box-header">
@@ -147,14 +155,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
         <div id="c">
             <div class="container">
                 <p>
-                    <a href="https://github.com/acacha/adminlte-laravel"></a><b>admin-lte-laravel</b></a>. {{ trans('adminlte_lang::message.descriptionpackage') }}.<br/>
-                    <strong>Copyright &copy; 2015 <a href="http://acacha.org">Acacha.org</a>.</strong> {{ trans('adminlte_lang::message.createdby') }} <a href="http://acacha.org/sergitur">Sergi Tur Badenas</a>. {{ trans('adminlte_lang::message.seecode') }} <a href="https://github.com/acacha/adminlte-laravel">Github</a>
-                    <br/>
-                    AdminLTE {{ trans('adminlte_lang::message.createdby') }} Abdullah Almsaeed <a href="https://almsaeedstudio.com/">almsaeedstudio.com</a>
-                    <br/>
-                    Pratt Landing Page PROVA {{ trans('adminlte_lang::message.createdby') }} <a href="http://www.blacktie.co">BLACKTIE.CO</a>
-                </p>
-
+                    <b>Quéjese aquí</b></a>.   
+                    <strong>Copyright &copy; 2017 </strong> Universidad: <a href="sancarlos.utn.ac.cr">UTN</a>. Repositorio <a href="https://github.com/Esteban2893/Qu-jese-Aqu-">Github</a>
             </div>
         </div>
     </footer>

@@ -4,7 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EntidadRequest extends FormRequest
+
+class QuejaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,18 +25,18 @@ class EntidadRequest extends FormRequest
     public function rules()
     {
         return [
-             'name' => 'required|string',
-            'email' => 'email',
-            'phone_number' => 'numeric',
+            'problem' => 'required|string',
+            'entity_id'=> 'required',
+            'solution'=> 'string',
         ];
     }
     public function messages()
     {
         return [
-            'name.required' => 'El nombre de la entidad no puede ser vacio.',
-            'email.email' => 'El correo tiene que ser valido',
-            'phone_number.numeric' => 'El teléfono tiene que ser numerico.',     
-
+            'problem.required' => 'El campo problema es requerido',
+            'problem.string' => 'El campo problema tiene que ser texto',
+            'entity_id.required' => 'El correo tiene que ser valido',
+            'solution.string' => 'El campo solucion tiene que ser texto',
         ];
     }
 }

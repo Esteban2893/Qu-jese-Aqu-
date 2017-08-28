@@ -11,6 +11,7 @@ use Session;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Notificacion;
 use App\Mail\NotificacionEntidad;
+use App\Http\Requests\QuejaRequest;
 
 class QuejasController extends Controller
 {
@@ -57,7 +58,7 @@ class QuejasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(QuejaRequest $request)
     {
          $queja = new Queja;
  
@@ -107,7 +108,7 @@ class QuejasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(QuejaRequest $request, $id)
     {
         $queja = Queja::find($id);
         $queja->fill($request->all());

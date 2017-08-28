@@ -16,7 +16,7 @@
         			</div>
           @include('entidad.partials.form',['submitButtonText'=>'Crear'])
        
-        </center>
+      
     </div>
 </div>
 </div>

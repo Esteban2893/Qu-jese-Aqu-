@@ -1,5 +1,9 @@
+    
  <div class="panel-body">
+
+@include('errors.request')
         <div class="col-md-12 col-md-offset-0">
+        
             <div class="panel-body divstyle1">
                 {!! csrf_field() !!}
                  <div class="form-group">
@@ -24,6 +28,7 @@
             </div>
         </div>
     </div>
+
     <div class="form-group">
     <center>
     <button type="submit" class="btn btn-primary">{{ $submitButtonText }}</button>

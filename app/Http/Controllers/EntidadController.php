@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Entidad;
 use Session;
+use App\Http\Requests\EntidadRequest;
 
 
 class EntidadController extends Controller
@@ -41,7 +42,7 @@ class EntidadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EntidadRequest $request)
     {
         $entidad = new Entidad;
  
@@ -86,7 +87,7 @@ class EntidadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EntidadRequest $request, $id)
     {
         $entidad = Entidad::find($id);
         $entidad->fill($request->all());

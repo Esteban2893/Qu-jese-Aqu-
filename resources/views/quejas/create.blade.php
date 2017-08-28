@@ -7,7 +7,9 @@
 
             <!-- /.box-header -->
             <div class="box-body">
+
               <form role="form">
+
                 <!-- text input -->
                 <div class="form-group">
 				<div class="panel panel-default">

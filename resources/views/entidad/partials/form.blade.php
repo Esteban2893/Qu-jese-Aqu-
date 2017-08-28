@@ -1,3 +1,4 @@
+@include('errors.request')
  <div class="panel-body">
         <div class="col-md-12 col-md-offset-0">
             <div class="panel-body divstyle1">

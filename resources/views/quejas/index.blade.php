@@ -1,12 +1,11 @@
 @extends('adminlte::layouts.app')
-
+@include('messages.message')
 @section('main-content')
 <div class="row">
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Lista de Quejas</h3>  
-            @include('messages.message')
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
              @if(count($quejas)>0)

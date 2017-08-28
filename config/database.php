@@ -60,7 +60,7 @@ return [
             'engine' => null,
         ],
 
-       'pgsql' => [
+      'pgsql' => [
             'driver' => 'pgsql',
             'host' => 'ec2-54-163-254-143.compute-1.amazonaws.com',
             'port' => '5432',

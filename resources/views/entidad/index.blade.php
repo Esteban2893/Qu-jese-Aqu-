@@ -6,7 +6,7 @@
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Lista de Entidades</h3>
-              @include('messages.message')
+              
             <div class="box-body table-responsive no-padding">
              @if(count($entidades)>0)
               <table class="table table-hover">

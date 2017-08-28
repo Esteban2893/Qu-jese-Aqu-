@@ -27,7 +27,7 @@ class QuejaRequest extends FormRequest
         return [
             'problem' => 'required|string',
             'entity_id'=> 'required',
-            'solution'=> 'string',
+            
         ];
     }
     public function messages()
@@ -36,7 +36,7 @@ class QuejaRequest extends FormRequest
             'problem.required' => 'El campo problema es requerido',
             'problem.string' => 'El campo problema tiene que ser texto',
             'entity_id.required' => 'El correo tiene que ser valido',
-            'solution.string' => 'El campo solucion tiene que ser texto',
+            
         ];
     }
 }

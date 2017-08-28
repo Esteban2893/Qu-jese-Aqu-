@@ -46,6 +46,11 @@
                                href="{{ URL::to('activarqueja/'.$queja->id) }}" role="button">Activar
                                 </span></a>
                         </td>
+                         <td> {!!Form::open(array('url' => "/quejas/$queja->id", 'method' => 'DELETE'))!!}
+                            <button class="btn btn-default btn-danger"><span class="fa fa-trash"></span>Eliminar
+                            </button>
+                            {!!Form::close()!!}
+                        </td>
                 </tr>
                 @endforeach
               </table>

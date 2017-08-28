@@ -51,31 +51,6 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
         </div>
     </div>
 <br>
-
-    <section id="home" name="home">
-        <div id="headerwrap">
-            <div class="container">
-                <div class="row centered">
-                    <div class="col-lg-12">
-                        <h1>BIENVENIDO</h1>
-        <br>
-        <br>
-
-                        <h3>En esta aplicación web usted podrá crear quejas sobre cualquier empresa o institución.
-                        Inicie sesión con facebook para que pueda crearlas. 
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        
-                    </div>
-
-                </div>
-            </div> <!--/ .container -->
-        </div><!--/ #headerwrap -->
-    </section>
          
     <section id="desc" name="desc">
         <!-- INTRO WRAP -->
@@ -83,16 +58,14 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             <div class="container">
                 <div class="row centered">
                
-                    <h1>Lista de quejas</h1>
+                    <h1>Detalles de la queja</h1>
                     <br>
                     <br>
         <div class="row">
          <div class="col-md-12">
           <!-- The time line -->
           <ul class="timeline">
-           @if(count($quejas)>0)
             <li>
-            @foreach($quejas as $queja)
                 <div class="panel-group">
                      <div class="panel panel-info">
                 <div class="pull-left image">
@@ -102,10 +75,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
               <div class="timeline-item">
                 <span class="time"><i class="fa fa-clock-o"></i> {{$queja->created_at}}</span>
 
-                 <h3 class="timeline-header"><a href="#">{{$queja->user->name}}</a> Creó una queja para el departamento:  {{$queja->department}} de la Entidad:
+                <h3 class="timeline-header"><a href="#">{{$queja->user->name}}</a> Creó una queja para el departamento:  {{$queja->department}} de la Entidad:
                 {{$queja->entidad->name}}</h3>
+
                 <div class="timeline-body">
-                 Problema: {{$queja->problem}}
+                  {{$queja->problem}}
                 </div>
                @if(Auth::user()) 
                 <div class="timeline-footer">
@@ -117,40 +91,13 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                 @endif
                 
               </div>
-               @endforeach
             </li>
-            @else
-                <h4>No hay quejas creadas en el sistema. </h4>
-            @endif
             </div> <!--/ .container -->
         </div><!--/ #introwrap -->
         
        
-          @if($quejas != null)
-            <div class="panel-footer text-center">
-                {!! $quejas->render() !!}
-            </div>
-        @endif
-        <!-- FEATURES WRAP -->
-
    <br/>
    
-     <section id="graf" name="graf">
-    <div class="box box-primary">
-        <div class="box-header">
-        </div>
-
-        <div class="box-body" id="div_grafica_pie">
-        </div>
-
-        <div class="box-footer">
-        </div>
-    </div>
-
-          <!-- /.box -->
-
-        </div>
-    </section>
     <footer>
         <div id="c">
             <div class="container">

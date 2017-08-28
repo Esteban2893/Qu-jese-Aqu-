@@ -47,8 +47,8 @@ class HomeController extends Controller
                ->orderBy('created_at', 'desc')
                ->paginate(2);
                foreach ($quejas as $queja) {
-                    $queja->Entidad = Entidad::find($queja->entity_id); 
-                     $queja->User = $queja->user()->get();   
+                    $queja->entidad = Entidad::find($queja->entity_id); 
+                    $queja->User = $queja->user()->get();   
                }
         
         return view('welcome',compact('quejas'));

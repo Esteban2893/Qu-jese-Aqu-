@@ -1,9 +1,10 @@
+@component('mail::message')
+# Introduction
 
+Hay una nueva queja creada en la aplicación. 
 
-<h1>Hay una nueva queja creada.</h1>
+@component('mail::button', ['url' => $url, 'color' => 'blue'])
 
- <td> {!!Form::open(array('url' => "localhost:8000", 'method' => 'GET'))!!}
-                            <button class="btn btn-default btn-success">Ir al sitio
-                            </button>
-                            {!!Form::close()!!}
-                        </td>
+Ir al sitio
+@endcomponent
+@endcomponent

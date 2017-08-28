@@ -6,19 +6,18 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\URL;
+use App\User;
 
 class Notificacion extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
+    
     public function __construct()
     {
-        //
+        
+        
     }
 
     /**
@@ -28,8 +27,6 @@ class Notificacion extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.notificacion')
-        ->with('name', 'Esteban')
-        ->from('admin@quejeseaqui.com', 'Quéjese Aquí');
+       return $this->markdown('emails.notificacion')->with(['url' => URL::to('/')]);
     }
 }

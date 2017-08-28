@@ -10,6 +10,7 @@ use Auth;
 use Session;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Notificacion;
+use App\Mail\NotificacionEntidad;
 
 class QuejasController extends Controller
 {
@@ -21,13 +22,16 @@ class QuejasController extends Controller
     public function __construct()
 
     {
-        $this->middleware('auth');
-
+        
+        $this->middleware('auth', ['except' => ['show']]);
+       
     }
     public function index()
     {
         $user = User::find(Auth::User()->id);
-        $quejas = $user->quejas()->paginate(5);
+        $quejas = $user->quejas()
+            ->orderBy('created_at', 'desc')
+             ->paginate(5);
          foreach ($quejas as $queja) {
             $queja->entidad = Entidad::find($queja->entity_id);
         }
@@ -77,7 +81,10 @@ class QuejasController extends Controller
      */
     public function show($id)
     {
-        //
+        $queja = Queja::find($id);
+        $queja->entidad = Entidad::find($queja->entity_id);
+        $queja->user = User::find($queja->user_id);
+        return View('quejas/show', ['queja' => $queja]);
     }
 
     /**
@@ -137,10 +144,13 @@ class QuejasController extends Controller
     {
        $queja = Queja::find($id);
        $queja->available = true; 
-       $queja->save();
-       return redirect('listaquejas');
+       $queja->save(); 
+       $queja->entidad = Entidad::find($queja->entity_id); 
+            Mail::to($queja->entidad->email)
+            ->send(new NotificacionEntidad($queja));
+            return redirect('listaquejas');
     }
-
+       
      public function megustaQuejas($id)
     {
        

@@ -20,10 +20,11 @@ class EntidadController extends Controller
         $this->middleware('auth');
 
     }
+
     public function index()
     {
         $entidades = Entidad::paginate(6);
-        return view('entidad/index', ['entidades' => $entidades]); 
+        return view('entidad/index', ['entidades' => $entidades]);
     }
 
     /**
@@ -39,27 +40,27 @@ class EntidadController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(EntidadRequest $request)
     {
         $entidad = new Entidad;
- 
-        $entidad->name  = $request->name;
+
+        $entidad->name = $request->name;
         $entidad->address = $request->address;
-        $entidad->phone_number  = $request->phone_number;
-        $entidad->website  = $request->website;
-        $entidad->email  = $request->email;
+        $entidad->phone_number = $request->phone_number;
+        $entidad->website = $request->website;
+        $entidad->email = $request->email;
         $entidad->save();
-        Session::flash('success', 'Entidad creada con éxito');
+        Session::flash('success', 'Entidad creada exitosamente');
         return redirect('entidades');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -70,21 +71,21 @@ class EntidadController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-         $entidad = Entidad::find($id);
-        return view('entidad.edit',['entidad' => $entidad]);
-        
+        $entidad = Entidad::find($id);
+        return view('entidad.edit', ['entidad' => $entidad]);
+
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(EntidadRequest $request, $id)
@@ -92,13 +93,15 @@ class EntidadController extends Controller
         $entidad = Entidad::find($id);
         $entidad->fill($request->all());
         $entidad->save();
-        return redirect('entidades')->with('info', 'Fue editado exitosamente');
+        Session::flash('success', 'Entidad editada exitosamente');
+        return redirect('entidades');
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

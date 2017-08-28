@@ -70,7 +70,7 @@ class QuejasController extends Controller
         $queja->save();
         Mail::to('estebanmora_93@hotmail.com', 'Esteban')
         ->send(new Notificacion());
-        Session::flash('success', 'Queja creada con éxito');
+        Session::flash('success', 'Queja creada exitosamente');
         return redirect('/quejas');
     }
 
@@ -113,7 +113,8 @@ class QuejasController extends Controller
         $queja = Queja::find($id);
         $queja->fill($request->all());
         $queja->save();
-        return redirect('quejas')->with('info', 'Queja editada exitosamente');
+        Session::flash('success', 'Queja editada exitosamente');
+        return redirect('quejas');
     }
 
     /**
@@ -126,7 +127,8 @@ class QuejasController extends Controller
     {
         $queja = Queja::find($id);
         $queja->delete();
-        return redirect('quejas')->with('info', 'Queja eliminada exitosamente');
+        Session::flash('success', 'Queja eliminada exitosamente');
+        return redirect('/quejas');
     }
 
 

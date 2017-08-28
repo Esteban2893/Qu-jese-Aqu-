@@ -8,6 +8,8 @@ use App\Entidad;
 use App\User;
 use Auth;
 use Session;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Notificacion;
 
 class QuejasController extends Controller
 {
@@ -61,6 +63,8 @@ class QuejasController extends Controller
         $queja->solution  = $request->solution;
         $queja->user_id = Auth::User()->id;
         $queja->save();
+        Mail::to('estebanmora_93@hotmail.com', 'Esteban')
+        ->send(new Notificacion());
         Session::flash('success', 'Queja creada con éxito');
         return redirect('/quejas');
     }

@@ -11,6 +11,7 @@
 |
  */
 
+
 Route::get('/' , 'HomeController@vistaPrincipal');
 
 Route::get('/home', function () {
@@ -38,3 +39,4 @@ Route::get('listaquejas', 'QuejasController@listaQuejas');
 Route::get('megustaqueja/{id}', 'QuejasController@megustaQuejas');
 
 Route::get('grafico','GraficasController@total_quejas');
+
